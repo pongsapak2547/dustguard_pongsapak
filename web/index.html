@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DustGuard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>😷 DustGuard</h1>
+    <p>ระบบแจ้งเตือนฝุ่น PM2.5 ทางอีเมลอัตโนมัติ เช็กทุก 1 ชั่วโมง เตือนเมื่อเกิน <b id="threshold">37.5</b> µg/m³</p>
+    <div class="aqi-strip" aria-hidden="true">
+      <span class="lv1"></span><span class="lv2"></span><span class="lv3"></span><span class="lv4"></span><span class="lv5"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>สมัครรับแจ้งเตือน</h2>
+      <form id="subscribe-form">
+        <label for="email">อีเมล</label>
+        <input id="email" type="email" required placeholder="you@example.com" autocomplete="email">
+
+        <label for="province">จังหวัด</label>
+        <select id="province" required>
+          <option value="">กำลังโหลด…</option>
+        </select>
+
+        <button type="submit" id="submit-btn">สมัคร</button>
+      </form>
+      <p id="form-msg" class="msg" role="status"></p>
+      <p class="note">หลังสมัคร ให้เปิดอีเมลจาก AWS Notifications แล้วกด Confirm subscription ระบบถึงจะเริ่มส่งเตือน</p>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>ค่าฝุ่นล่าสุด</h2>
+        <button type="button" id="refresh-btn" class="ghost">รีเฟรช</button>
+      </div>
+      <table>
+        <thead><tr><th>จังหวัด</th><th>PM2.5 (µg/m³)</th><th>อัปเดต</th></tr></thead>
+        <tbody id="readings"><tr><td colspan="3">กำลังโหลด…</td></tr></tbody>
+      </table>
+      <ul class="legend">
+        <li><span class="dot lv1"></span>≤15 ดีมาก</li>
+        <li><span class="dot lv2"></span>≤25 ดี</li>
+        <li><span class="dot lv3"></span>≤37.5 ปานกลาง</li>
+        <li><span class="dot lv4"></span>≤75 เริ่มมีผลกระทบ</li>
+        <li><span class="dot lv5"></span>&gt;75 มีผลกระทบ</li>
+      </ul>
+      <p class="source">ข้อมูลจาก Air4Thai กรมควบคุมมลพิษ · ค่าเฉลี่ยของทุกสถานีในจังหวัด</p>
+    </section>
+  </main>
+
+  <footer>CS446 Cloud Computing · Bangkok University · AWS Serverless</footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

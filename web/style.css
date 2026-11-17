@@ -1,0 +1,237 @@
+:root {
+  --bg: #e8eef2;
+  --card: #ffffff;
+  --text: #17293a;
+  --muted: #5b6e7d;
+  --border: #d3dde4;
+  --field: #a9bac7;
+  --accent: #17293a;
+  --accent-hover: #24425c;
+  --ok: #1d6b3a;
+  --err: #a12a2a;
+  /* สีระดับฝุ่นตาม Air4Thai */
+  --lv1: #3bccff;
+  --lv2: #92d050;
+  --lv3: #ffff00;
+  --lv4: #ffa200;
+  --lv5: #f04646;
+  --font-body: "Anuphan", "Sarabun", "Noto Sans Thai", system-ui, sans-serif;
+  --font-num: "Chakra Petch", "Anuphan", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+header, main, footer { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- หัวเว็บ ---------- */
+header { padding-top: 48px; padding-bottom: 28px; }
+
+h1 {
+  margin: 0 0 6px;
+  font-family: var(--font-num);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 7vw, 3rem);
+  line-height: 1.1;
+}
+
+header p { margin: 0; color: var(--muted); font-size: 1.0625rem; }
+
+header p b { color: var(--text); font-family: var(--font-num); font-weight: 600; }
+
+/* แถบสีระดับฝุ่นใต้หัวเว็บ */
+.aqi-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+  height: 6px;
+  margin-top: 22px;
+}
+
+.aqi-strip span:first-child { border-radius: 3px 0 0 3px; }
+.aqi-strip span:last-child { border-radius: 0 3px 3px 0; }
+
+/* ---------- การ์ด ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(23, 41, 58, 0.04), 0 8px 24px -12px rgba(23, 41, 58, 0.12);
+}
+
+h2 { margin: 0 0 16px; font-size: 1.3125rem; font-weight: 600; line-height: 1.3; }
+
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+.row h2 { margin: 0; }
+
+/* ---------- ฟอร์ม ---------- */
+form { display: grid; gap: 6px; }
+
+label { font-weight: 600; font-size: 0.9375rem; margin-top: 6px; }
+label:first-child { margin-top: 0; }
+
+input, select, button {
+  font: inherit;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--field);
+  background: var(--card);
+  color: var(--text);
+  width: 100%;
+}
+
+input::placeholder { color: #8698a6; }
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(23, 41, 58, 0.15);
+}
+
+button {
+  margin-top: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button:hover { background: var(--accent-hover); }
+button:disabled { opacity: 0.6; cursor: progress; }
+
+button.ghost {
+  width: auto;
+  margin: 0;
+  padding: 7px 14px;
+  font-size: 0.9375rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--field);
+}
+
+button.ghost:hover { background: var(--bg); }
+
+.msg { min-height: 1.65em; margin: 14px 0 0; font-weight: 500; }
+.msg:empty { min-height: 0; margin: 0; }
+.msg.ok { color: var(--ok); }
+.msg.err { color: var(--err); }
+
+.note {
+  margin: 10px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* ---------- ตารางค่าฝุ่น ---------- */
+table { width: 100%; border-collapse: collapse; }
+
+th {
+  text-align: left;
+  padding: 10px 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 2px solid var(--text);
+}
+
+td {
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+td:first-child { font-weight: 600; font-size: 1.0625rem; }
+
+td.time { color: var(--muted); font-size: 0.875rem; white-space: nowrap; }
+
+.badge {
+  display: inline-block;
+  min-width: 68px;
+  text-align: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--font-num);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px rgba(23, 41, 58, 0.12);
+}
+
+.badge.na {
+  background: var(--bg);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  box-shadow: none;
+}
+
+.lv1 { background: var(--lv1); }
+.lv2 { background: var(--lv2); }
+.lv3 { background: var(--lv3); }
+.lv4 { background: var(--lv4); }
+.lv5 { background: var(--lv5); }
+
+/* ---------- คำอธิบายสี ---------- */
+.legend {
+  list-style: none;
+  padding: 16px 0 0;
+  margin: 8px 0 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.legend li { display: flex; align-items: center; }
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-right: 7px;
+  box-shadow: inset 0 0 0 1px rgba(23, 41, 58, 0.15);
+}
+
+.source { font-size: 0.8125rem; color: var(--muted); margin: 12px 0 0; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  padding-top: 12px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 520px) {
+  header { padding-top: 32px; }
+  .card { padding: 20px; border-radius: 14px; }
+  th, td { padding-left: 4px; padding-right: 4px; }
+  .badge { min-width: 56px; padding: 3px 8px; font-size: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button { transition: none; }
+}
