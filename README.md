@@ -5,7 +5,7 @@ DustGuard เช็กค่าฝุ่น PM2.5 จาก Air4Thai ของ�
 ทั้งระบบเป็น serverless บน AWS ใช้ **7 บริการ** ทำงานเองอัตโนมัติ และดึงข้อมูลจริงจาก API ภายนอก ตามเกณฑ์ Level 4
 
 - วิชา CS446 Cloud Computing มหาวิทยาลัยกรุงเทพ
-- เว็บที่ใช้งานอยู่: https://staging.dpzmytwq1jo8y.amplifyapp.com
+- เว็บที่ใช้งานอยู่: https://staging.d3dih4rbpnpxgo.amplifyapp.com
 
 | สมาชิก | รหัสนักศึกษา |
 |---|---|
