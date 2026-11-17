@@ -4,11 +4,11 @@ DustGuard ช่วยให้คนไม่ต้องคอยเปิด�
 
 ทั้งระบบเป็น serverless บน AWS ใช้ 7 บริการ ทำงานเองตามเวลา และใช้ข้อมูลจริงจาก API ภายนอก
 
-- วิชา CS446 Cloud Computing มหาวิทยาลัยกรุงเทพ
+- กลุ่ม **Xenu** วิชา CS446 Cloud Computing มหาวิทยาลัยกรุงเทพ
 - เว็บที่ใช้งานอยู่: https://staging.d3dih4rbpnpxgo.amplifyapp.com
 - คู่มือสร้างระบบทีละขั้นผ่าน AWS Console: [docs/DustGuard_Step-by-Step.pdf](docs/DustGuard_Step-by-Step.pdf)
 
-| สมาชิก | รหัสนักศึกษา |
+| สมาชิกกลุ่ม Xenu | รหัสนักศึกษา |
 |---|---|
 | ชิษณุพงศ์ มัดจุปะ (หัวหน้ากลุ่ม) | 1660707306 |
 | ดำรงค์ สว่างวงศ์ | 1660707173 |
